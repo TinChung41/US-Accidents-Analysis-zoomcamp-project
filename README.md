@@ -22,7 +22,9 @@ The goal of this project is to build an end-to-end batch data pipeline to perfor
 ## Problem statement
 ---
 * ### ***Dataset***: 
-    The Dataset selected for this project is the `Eviction Notice Dataset of San Francisco` obtained from [DataSF](https://data.sfgov.org/Housing-and-Buildings/Eviction-Notices/5cei-gny5). This data includes eviction notices filed with the San Francisco Rent Board per San Francisco Administrative Code 37.9(c). Notices are published since January 1, 1997. The publishing/update frequency of the dataset is `monthly`. The Data is extracted via Socrata Open Data API (SODA).
+    The Dataset selected for this project is the `Debt securities statistics` obtained from [BIS Statistics](https://data.bis.org/topics/DSS/data). TThis data set covers borrowing activity in debt capital markets, capturing debt instruments designed to be traded in financial markets such as treasury bills, commercial paper, negotiable certificates of deposit, bonds, debentures and asset-backed securities. These statistics are harmonised with the recommendations of the Handbook on securities statistics (HSS) and distinguish between debt securities issued in international and domestic markets.
+
+The data set is available at quarterly frequency for over 50 economies starting as early as 1946. It benefited from close collaboration with national central banks and national authorities, also as part of the G20 Data Gaps Initiative.
 
     The columns in the Dataset and their description is available [here](docs/info_dataset.md)
 
