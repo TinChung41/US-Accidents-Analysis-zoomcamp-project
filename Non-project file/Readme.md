@@ -11,8 +11,8 @@ Find out what you need to execute based on the help output.
 
 What's the version, based on the output of the command you executed? (copy the entire version)
 
+![image](https://github.com/TinChung41/data-engineering-zoomcamp-project/assets/98845918/16449f47-cda5-4c0b-ad03-f4d96a2703a1)
 
-![image](https://github.com/TinChung41/data-engineering-zoomcamp-project/assets/98845918/015e737f-3d39-415a-9b6d-72a2ef2359bf)
 
 Question 2. Creating a topic
 Before we can send data to the redpanda server, we need to create a topic. We do it also with the rpk command we used previously for figuring out the version of redpandas.
@@ -60,6 +60,7 @@ producer.bootstrap_connected()
 
 Provided that you can connect to the server, what's the output
 of the last command?
+![image](https://github.com/TinChung41/data-engineering-zoomcamp-project/assets/98845918/015e737f-3d39-415a-9b6d-72a2ef2359bf)
 
 
 ## Question 4. Sending data to the stream
@@ -91,6 +92,7 @@ How much time did it take? Where did it spend most of the time?
 
 (Don't remove `time.sleep` when answering this question)
 
+![image](https://github.com/TinChung41/data-engineering-zoomcamp-project/assets/98845918/827b8d3b-4321-46af-927a-bd60c18da54b)
 
 ## Reading data with `rpk`
 
@@ -103,6 +105,7 @@ rpk topic consume test-topic
 
 Run the command above and send the messages one more time to 
 see them
+![image](https://github.com/TinChung41/data-engineering-zoomcamp-project/assets/98845918/3460960f-fe03-4d0e-b3af-4cf1211e59cb)
 
 
 ## Sending the taxi data
@@ -129,7 +132,23 @@ for row in df_green.itertuples(index=False):
 
     # TODO implement sending the data here
 ```
+```python
+topic_name = 'green-trips'
 
+for row in df_green.itertuples(index=False):
+    row_dict = {col: getattr(row, col) for col in row._fields}
+    print(row_dict)
+
+
+    #TODO implement sending the data here
+    producer.send(topic_name, value=row_dict)
+    print(f"Sent: {row_dict}")
+
+producer.flush()
+
+t1 = time.time()
+print(f'took {(t1 - t0):.2f} seconds')
+```
 Note: this way of iterating over the records is more efficient compared
 to `iterrows`
 
@@ -174,6 +193,7 @@ green_stream = spark \
     .option("startingOffsets", "earliest") \
     .load()
 ```
+![image](https://github.com/TinChung41/data-engineering-zoomcamp-project/assets/98845918/f7a70859-d92b-4a21-b61e-a09e98f26392)
 
 In order to test that we can consume from the stream, 
 let's see what will be the first record there. 
@@ -239,6 +259,15 @@ green_stream = green_stream \
 ```
 
 How does the record look after parsing? Copy the output. 
+```
+24/03/23 21:01:12 WARN ResolveWriteToStream: Temporary checkpoint location created which is deleted normally when the query didn't fail: /tmp/temporary-46ab4b1c-7e48-4305-be0b-99d7d0fa2c6e. If it's required to delete it under any circumstances, please set spark.sql.streaming.forceDeleteTempCheckpointLocation to true. Important to know deleting temp checkpoint folder is best effort.
+24/03/23 21:01:12 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+24/03/23 21:01:12 WARN AdminClientConfig: These configurations '[key.deserializer, value.deserializer, enable.auto.commit, max.poll.records, auto.offset.reset]' were supplied but are not used yet.
+                                                                                
+Row(lpep_pickup_datetime='2019-10-01 00:26:02', lpep_dropoff_datetime='2019-10-01 00:39:58', PULocationID=112, DOLocationID=196, passenger_count=1.0, trip_distance=5.88, tip_amount=0.0)
+```
+![image](https://github.com/TinChung41/data-engineering-zoomcamp-project/assets/98845918/7140b69d-419b-4057-8a1a-6e48eaaf0ecd)
+
 
 
 ### Question 7: Most popular destination
