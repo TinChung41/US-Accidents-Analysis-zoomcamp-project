@@ -1,6 +1,8 @@
-## San Francisco Eviction Data ELT - A Data Engineering Zoomcamp Capstone Project
+## Debt securities statistics Data ELT
 ---
-The goal of this project is to build an end-to-end batch data pipeline to perform ELT (Extract Load Transform) on San Francisco City Eviction Data available at [DataSF](https://data.sfgov.org/Housing-and-Buildings/Eviction-Notices/5cei-gny5). And perform ELT monthly in order to analyse the eviction patterns from historical data to till date.
+The goal of this project is to build an end-to-end batch data pipeline to perform ELT (Extract Load Transform) on Debt securities statistics Data available at [DataSF](https://data.sfgov.org/Housing-and-Buildings/Eviction-Notices/5cei-gny5). And perform ELT monthly in order to analyse the eviction patterns from historical data to till date.
+
+Bank for International Settlements (2024), Debt securities statistics, BIS WS_NA_SEC_DSS 1.0 (data set), https://data.bis.org/topics/DSS/data (accessed on 31 March 2024).
 
 ### Table of contents
 
