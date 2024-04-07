@@ -8,7 +8,7 @@ The goal of this project is to build an end-to-end batch data pipeline to perfor
 
 ### Table of contents
 
-- [Overview](#problem-statement)
+- [Overview](#overview)
   - [Dataset](#dataset)
   - [Proposed Solution](#proposed-solution)
 - [Data Pipeline Overview](#data-pipeline-overview)
