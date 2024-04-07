@@ -1,12 +1,14 @@
-## Debt securities statistics Data ELT
+# Project US Accidents (2016 - 2023)
+
 ---
-The goal of this project is to build an end-to-end batch data pipeline to perform ELT (Extract Load Transform) on Debt securities statistics Data available at [DataSF](https://data.sfgov.org/Housing-and-Buildings/Eviction-Notices/5cei-gny5). And perform ELT monthly in order to analyse the eviction patterns from historical data to till date.
+## Overview
+The goal of this project is to build an end-to-end batch data pipeline to perform ELT (Extract Load Transform) oncountrywide car accident dataset that covers 49 states of the USA. The accident data were collected from February 2016 to March 2023, using multiple APIs that provide streaming traffic incident (or event) data. Data available at [US_Accidents_March23](https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents). And perform ELT daily in order to analyse the casualty analysis, accidents distribution from historical data to till March 2023(the dataset will no longer be updated, and this version should be considered the latest).
 
 
 
 ### Table of contents
 
-- [Problem statement](#problem-statement)
+- [Overview](#problem-statement)
   - [Dataset](#dataset)
   - [Proposed Solution](#proposed-solution)
 - [Data Pipeline Overview](#data-pipeline-overview)
