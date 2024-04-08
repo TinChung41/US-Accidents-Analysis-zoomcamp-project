@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: staging
+    database: my-data-project-13837
+     # For postgres:
+      #database: production
+    schema: us_accidentUS_Accidents_March23_sampled_500k
+      # loaded_at_field: record_loaded_at
+    tables:
+      - name: US_Accidents_March23_sampled_500k
