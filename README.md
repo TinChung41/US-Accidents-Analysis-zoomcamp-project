@@ -1,14 +1,16 @@
-## Debt securities statistics Data ELT
+# Project US Accidents (2016 - 2023)
+
 ---
-The goal of this project is to build an end-to-end batch data pipeline to perform ELT (Extract Load Transform) on Debt securities statistics Data available at [DataSF](https://data.sfgov.org/Housing-and-Buildings/Eviction-Notices/5cei-gny5). And perform ELT monthly in order to analyse the eviction patterns from historical data to till date.
+## Overview
+The goal of this project is to build an end-to-end batch data pipeline to perform ELT (Extract Load Transform) oncountrywide car accident dataset that covers 49 states of the USA. The accident data were collected from February 2016 to March 2023, using multiple APIs that provide streaming traffic incident (or event) data. Data available at [US_Accidents_March23](https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents). And perform ELT daily in order to analyse the casualty analysis, accidents distribution from historical data to till March 2023(the dataset will no longer be updated, and this version should be considered the latest).
 
 
 
 ### Table of contents
 
-- [Problem statement](#problem-statement)
+- [Overview](#overview)
   - [Dataset](#dataset)
-  - [Proposed Solution](#proposed-solution)
+  - [Objective](#objective)
 - [Data Pipeline Overview](#data-pipeline-overview)
 - [Technologies](#technologies)
 - [Architecture](#architecture)
@@ -24,14 +26,16 @@ The goal of this project is to build an end-to-end batch data pipeline to perfor
 ## Problem statement
 ---
 * ### ***Dataset***: 
-    The Dataset selected for this project is the `Debt securities statistics` obtained from [BIS Statistics](https://data.bis.org/topics/DSS/data). TThis data set covers borrowing activity in debt capital markets, capturing debt instruments designed to be traded in financial markets such as treasury bills, commercial paper, negotiable certificates of deposit, bonds, debentures and asset-backed securities. These statistics are harmonised with the recommendations of the Handbook on securities statistics (HSS) and distinguish between debt securities issued in international and domestic markets.
+    The Dataset selected for this project is the `A Countrywide Traffic Accident Dataset (2016 - 2023)` obtained from [Kaggle](https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents). This is a countrywide car accident dataset that covers 49 states of the USA. The accident data were collected from February 2016 to March 2023, using multiple APIs that provide streaming traffic incident (or event) data. These APIs broadcast traffic data captured by various entities, including the US and state departments of transportation, law enforcement agencies, traffic cameras, and traffic sensors within the road networks. The dataset currently contains approximately 7.7 million accident records. For more information about this dataset, please visit here.
 
-The data set is available at quarterly frequency for over 50 economies starting as early as 1946. It benefited from close collaboration with national central banks and national authorities, also as part of the G20 Data Gaps Initiative.
 
-    The columns in the Dataset and their description is available [here](docs/info_dataset.md)
+    The columns in the Dataset and their description is available [here](https://smoosavi.org/datasets/us_accidents)
 
-* ### ***Proposed Solution***:
-    This project aims at extracting this data from the source via API and building a BATCH ELT which will be scheduled to run monthly and update the connected Dashbord for monthly Analytics & Reporting. 
+* ### Objective:
+---
+  Data will be extracted from the source, and an end-to-end data pipeline will be constructed. The process includes creating an end-to-end pipeline, performing batch data processing, ingesting and storing data in a data lake, a pipeline to analytical warehouse and building interactive dashboards for visualization.
+
+
 
 
 ## Data Pipeline Overview 
