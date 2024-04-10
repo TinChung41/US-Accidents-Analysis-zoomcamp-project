@@ -8,7 +8,7 @@ with
 
 source as (
 
-  select * from {{ source('staging', 'US_Accidents_March23_sampled_500k') }}
+  select * from {{ source('staging', 'dev_source1_to_bq_standardize_columns_v1_copy') }}
 
 ),
 
