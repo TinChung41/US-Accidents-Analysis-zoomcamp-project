@@ -8,7 +8,7 @@ with
 
 source as (
 
-  select * from {{ source('staging', 'dev_source1_to_bq_standardize_columns_v1_copy') }}
+  select * from {{ source('staging', 'dev_source1_to_bq_standardize_columns_v1') }}
 
 ),
 
@@ -38,7 +38,7 @@ sample as (
     city,
     county,
     state,
-    cast(zipcode as numeric) as zipcode,
+    cast(substring(zipcode, 1, 5) as numeric) as zipcode,
     country,
     timezone,
     airport_code,
