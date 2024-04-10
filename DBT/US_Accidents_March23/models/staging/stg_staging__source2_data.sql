@@ -8,7 +8,7 @@ with
 
 source as (
 
-  select * from {{ source('staging', 'dev_gcs_to_bigquerry_standardize_columns_v1_copy') }}
+  select * from {{ source('staging', 'dev_gcs_to_bigquerry_standardize_columns_v1') }}
 
 ),
 
