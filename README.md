@@ -72,6 +72,7 @@ Steps in the ELT are as follows:
 1. Load data from BigQuerry to DBT for transformation and deployment
 
     * ELT PIPELINE VISUALIZATION WITH MAGE AS ORCHESTRATION
+    * 
 **Local CSV to GCS**
 
 ![image](https://github.com/TinChung41/US-Accidents-Analysis-zoomcamp-project/assets/98845918/730a4cf1-cbe2-4be0-8068-a6eee477ec0f)
