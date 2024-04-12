@@ -16,10 +16,7 @@ The goal of this project is to build an end-to-end batch data pipeline to perfor
 - [Architecture](#architecture)
 - [ELT Steps](#elt-steps)
 - [The Dashboard](#the-dashboard)
-- [Key Findings](#key-findings)
 - [Reproduction](#reproduction)
-- [Conclusion](#conclusion)
-- [Future Work](#future-work)
 - [References & Resources](#references--resources)
 
 
@@ -152,19 +149,8 @@ The questions that were aimed to answer and the corresponding findings are as be
 
 ## Reproduction:
 ---
-You can recreate and run the project by following the step by step instructions [here](docs/ProjectReplication.md)
-
-## Conclusion
----
-Through this project we were able to successfully build a ELT pipeline end to end which is scheduled to run monthly. And as a result we have a monthly updated list of eviction notices filed in the city of San Francisco which can then be visualized via the Dashboard on Looker Studio. This helps us get some useful insights on the latest eviction trends and patterns.
 
 
-## Future Work
----
-- Combine data about neighbourhoods and districts from other sources and make the reporting more rich.
-- Use DataProc to perform Spark job
-- Create a normalized data structure when using more data sources
-- Setup GCP Service Account and Permissions via Terraform
 
 ## References & Resources 
 ---
