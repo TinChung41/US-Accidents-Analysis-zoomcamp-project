@@ -92,58 +92,24 @@ The dashboard is accessible from [here](https://lookerstudio.google.com/reportin
 
 ![image](https://github.com/TinChung41/US-Accidents-Analysis-zoomcamp-project/assets/98845918/c6b7324a-ba50-4ff4-8647-6e39e2b675f4)
 
-## Key Findings
----
-The data from BigQuery table `fact_eviction` is blended with [Supervisor Dataset](https://data.sfgov.org/Geographic-Locations-and-Boundaries/Supervisor-Districts-2022-/f2zs-jevy/data?no_mobile=true) on Looker Studio to develop Visualizations; to answer some key questions.
-
-
-The questions that were aimed to answer and the corresponding findings are as below:
-
-1. What has been the trend of overall evictions over the years in San Francisco?
-
-    The trend has been cyclical co-relating with the economic outlook in the city but overall it has been trending downwards with a maximum of 2897 evictions in 1998 to a low of 1200 evictions in 2022. The dip in evictions in the past couple of years are primarily due to eviction restrictions in 2020 and 2021 as a result of Covid. But it will be interesting to observe how the trend changes in the coming months and years as the restrictions are now finally lifted.
-
-1. What is the most recorded reason for eviction? 
-
-    Looking at the heatmap, it is evident that ***Owner Movein*** has been the most recorded reason for eviction. But in recent years, this reason for eviction has become ***Nuisance***
-
-1. Over the years, what has been the least recorded reason for eviction?
-
-    Over the years that data has been available, the least number of recorded reason for eviction has been for ***Lead Remediation*** 
-
-
-1. What are the top 3 reasons for eviction recorded over the last 10 years?
-    
-    The top 3 reasons are 
-    - Breach of contract
-    - Nuisance 
-    - Owner movein
-
-1. Which neighbourhood has seen the most evictions in 2022?
-
-    The neighbourhood which saw most evictions is ***Financial District/South Beach***
-
-1. Which neighbourhood has seen the lowest evictions in 2022?
-
-    The neighbourhood which saw lowest evictions is ***Mission Bay***. 
-
-
-1. Which supervisor has the most challenges w.r.t evictions in SF in 2022?
-    
-    Supervisor ***Matt Dorsey*** had the most number of evictions to deal with . This data could be utilized to ensure that the teams are sized right in the respective districts. 
-
-1. Looking at the trend of data, what would be your recommendation in the way that data is recorded?
-    
-    Given the trend of data, that ***Nusiance*** and ***Breach*** numbers have been increasing, the recommendation would be to break down these 2 reasons to better understand the exact reasons. This will allow the city council to take targeted actions to address this concern. 
 
 
 ## Reproduction:
 ---
+**IMPORTANT**: due to the csv being a bit large, I recomended using sample file of the dataset, I also built the pipeline for the sample.csv before implement the real dataset.
+
 
 
 
 ## References & Resources 
 ---
-Find them references [here](docs/info_references.md) & resources [here](docs/info_resources.md)
 
 [Back To Top](#data-engineering-zoomcamp-capstone-project)
+
+## Acknowledgements
+
+I would like to acknowledge the contributions of the following works:
+
+- Moosavi, Sobhan, et al. "A Countrywide Traffic Accident Dataset.", 2019.
+- Moosavi, Sobhan, et al. "Accident Risk Prediction based on Heterogeneous Sparse Data: New Dataset and Insights." In proceedings of the 27th ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems, ACM, 2019.
+
