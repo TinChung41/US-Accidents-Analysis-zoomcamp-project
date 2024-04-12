@@ -39,12 +39,6 @@ The goal of this project is to build an end-to-end batch data pipeline to perfor
 
 
 ## Data Pipeline Overview 
----
-This is a Batch Pipeline which will perform ELT on the 1st of every month at 00:05 am (as source data is updated monthly at the end of each month). 
-
-The ELT steps include:
-
-
 
 ## Technologies 
 ---
@@ -58,10 +52,11 @@ The ELT steps include:
 
 ## Architecture
 ---
-Also available [here](images/sf_eviction_pipeline.drawio.pdf)
 
 
-![BATCH ELT Architecture](images/architecture.JPG)
+![US_car_crash drawio](https://github.com/TinChung41/US-Accidents-Analysis-zoomcamp-project/assets/98845918/17a3b34b-3626-4ca1-a2ab-3552692be641)
+
+
 
 
 ## ELT Steps
