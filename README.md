@@ -72,7 +72,8 @@ Steps in the ELT are as follows:
 1. Load data from BigQuerry to DBT for transformation and deployment
 
     * ELT PIPELINE VISUALIZATION WITH MAGE
-    <br>
+***
+![image](https://github.com/TinChung41/US-Accidents-Analysis-zoomcamp-project/assets/98845918/f527e869-ad39-41a8-abce-3c5c8a6841ba)
 1. Transformed Data from BigQuery is used for Reporting and Visualization using Looker Studio to produce Dashboards
 
 ## The Dashboard: 
