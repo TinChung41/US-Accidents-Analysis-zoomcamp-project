@@ -52,7 +52,6 @@ The ELT steps include:
 * Infrastructure as code (IaC): ***Terraform***
 * Workflow orchestration: ***Mage***
 * Data Warehouse: ***BigQuery***
-* Batch processing: ***Spark***
 * Data Transformation: ***dbt-cloud***
 * Dashboard: ***Looker Studio***
 
