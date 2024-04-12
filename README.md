@@ -50,8 +50,8 @@ The goal of this project is to build an end-to-end batch data pipeline to perfor
 ## Architecture
 ---
 
+![US_car_crash drawio](https://github.com/TinChung41/US-Accidents-Analysis-zoomcamp-project/assets/98845918/d4ca22a6-1278-4204-abe8-db7e33ae30e5)
 
-![US_car_crash drawio](https://github.com/TinChung41/US-Accidents-Analysis-zoomcamp-project/assets/98845918/17a3b34b-3626-4ca1-a2ab-3552692be641)
 
 
 
@@ -61,46 +61,26 @@ The goal of this project is to build an end-to-end batch data pipeline to perfor
 Steps in the ELT are as follows:
 
 1. A Project is created on ***GCP*** 
-1. SODA API keys and secrets are obtained by creating an account on DataSF, which will be used to extract the data from the source
 1. Infrastructure for the Project is created using ***Terraform*** which creates the following:
-    * Datalake : ***Google Cloud Storage Bucket*** where the raw and cleaned-partitioned data will be stored
-    * Data Warehouse: Three Datasets on ***BigQuery*** namely `raw`, `staging` and `production` are created in order to store the tables/views during different stages of ELT
-    * Virtual Machine: A Linux ***Compute Engine*** to schedule and run the pipeline on
-1. ***Prefect Cloud API*** is obtained by creating an account on Prefect Cloud
-1. The Pipeline for ELT is created on the VM and is scheduled for monthly execution. It is orchestrated via ***Prefect Cloud***; which does the following tasks
-    * Extracts raw data from source via ***Socrate Open Data API***
-    * Loads raw data to GCS Bucket
-    * Cleans and Partitions the raw data using ***Apache Spark***
-    * Loads the cleaned and partitioned data as parquet files to GCS
-    * Creates External table & Non-partitioned table in the `raw` Dataset in BigQuery by pulling data from GCS. 
+    * Data lake : ***Google Cloud Storage Bucket*** where the raw and cleaned-partitioned data will be stored
+    * Data Warehouse: Three Datasets on ***BigQuery***
+    * Using docker image for Mage
+
+
         
-        ***Note***: Partitioned or Clustered tables were not created as the dataset produced too many partitions (more than what BigQuery permitted)
+        ***Note***: Lastest Mage image on Google Cloud Run can't upload large Local file or is able to mount a local file with it(not to my knowledge). So I host my local Mage with my file to upload it to GCS
+1. Load data from BigQuerry to DBT for transformation and deployment
 
-    * Transforms Data from BigQuery using ***dbt-core*** and creates the following in the dev/prod Dataset (along with Tests and Documentation)
-        - the view `stg_eviction` - for staging data and 
-        - fact table `fact_eviction` - which contains the latest updated record for each eviction case till date 
-    
+    * ELT PIPELINE VISUALIZATION WITH MAGE
     <br>
-
-    * DOCUMENTATION ON DBT-CLOUD: 
-    <br>
-    ![dbt-documentation](images/dbt_documentation.JPG)
-
-    * LINEAGE GRAPH ON DBT-CLOUD:
-    <br>
-    ![dbt-lineage](images/dbt_lineage_graph.JPG)
-
-    * ELT PIPELINE VISUALIZATION  ON PREFECT CLOUD 
-    <br>
-    ![Prefect ETL](images/prefect_flow.JPG)
 1. Transformed Data from BigQuery is used for Reporting and Visualization using Looker Studio to produce Dashboards
 
 ## The Dashboard: 
 ---
-The dashboard is accessible from [here](https://lookerstudio.google.com/reporting/688e19ba-3476-45f2-9dba-94d813bb9328)
+The dashboard is accessible from [here](https://lookerstudio.google.com/reporting/7c6e5596-cc29-4c62-9abb-c68e8bd37982)
 
 
-![image](images/report.JPG)
+![image](https://github.com/TinChung41/US-Accidents-Analysis-zoomcamp-project/assets/98845918/c6b7324a-ba50-4ff4-8647-6e39e2b675f4)
 
 ## Key Findings
 ---
