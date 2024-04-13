@@ -215,6 +215,8 @@ go to (Looker Studio)[https://lookerstudio.google.com/u/0/navigation/reporting]
 
 choose a new report, choose data source: BigQuerry and use the data in the prod schema
 
+-Make some visualizations to get insights from the data
+- Since Looker geo data must be in the format `{latitude},{longtiude}`. I create a new field call: geo_vaild: `CONCAT('start_lat',',','start_long')`
 
 
 
