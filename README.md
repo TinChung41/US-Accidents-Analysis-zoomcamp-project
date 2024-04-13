@@ -68,7 +68,7 @@ Steps in the ELT are as follows:
 
 
         
-        ***Note***: Lastest Mage image on Google Cloud Run can't upload large Local file or is able to mount a local file with it(not to my knowledge). So I host my local Mage with my file to upload it to GCS
+        ***Note***: Lastest Mage image on Google Cloud Run can't upload large Local file or able to be mounted with a local file with it(not to my knowledge). So I host my local Mage with my file to upload it to GCS
 1. Load data from BigQuerry to DBT for transformation and deployment
 
     * ELT PIPELINE VISUALIZATION WITH MAGE AS ORCHESTRATION
@@ -96,9 +96,110 @@ The dashboard is accessible from [here](https://lookerstudio.google.com/reportin
 
 ## Reproduction:
 ---
-**IMPORTANT**: due to the csv being a bit large, I recomended using sample file of the dataset, I also built the pipeline for the sample.csv before implement the real dataset.
+**IMPORTANT**: due to the csv being a bit large, I recomended using sample file of the dataset, I also built the pipeline for the [sample.csv](https://drive.google.com/file/d/1U3u8QYzLjnEaSurtZfSAS_oh9AT2Mn8X) before implement the real dataset.
+
+### 1 Pre-requisites
+Set up GCP account
+
+Install terraform cli with [this](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) 
+
+Install Docker via this [link](https://docs.docker.com/desktop/install/linux-install/)
+
+### 2 Google Cloud Platform (GCP)
+
+Create your project, go to IAM and then Service account for 
+
+Mage
+---
+
+![image](https://github.com/TinChung41/US-Accidents-Analysis-zoomcamp-project/assets/98845918/30f96db4-df1a-4692-a36b-99a4ac4aca93)
+
+DBT
+---
+
+![image](https://github.com/TinChung41/US-Accidents-Analysis-zoomcamp-project/assets/98845918/c714be68-8b3b-42b1-8b43-ef920b6b5253)
+
+Download the json file for credential and authentification
 
 
+
+
+### 3 Terraform
+
+Terraform is infrastructure as cloud for Mage
+
+***Note***: Lastest Mage image on Google Cloud Run can't upload large Local file or able to be mounted with a local file with it(not to my knowledge). So I host my local Mage with my file to upload it to GCS, then use cloud run to load data from gcs to bigquerry
+
+**prerequisite**
+google cloud CLI
+google cloud permissions
+Mage Terraform templates
+
+Download Mage template: 
+`git clone https://github.com/mage-ai/mage-ai-terraform-templates.git`
+
+go to gcp directory, and change the variables name using this video: [part1](https://www.youtube.com/watch?v=9A872B5hb_0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=30), 
+
+modify the variable in variables.tf
+```
+variable "project_id" {
+  type        = string
+  description = "The name of the project"
+  default     = "my-data-project-13837"
+}
+```
+Make sure the following APIs are enabled in this [link](https://console.cloud.google.com/apis/library?hl=vi&project=my-data-project-13837)
+Cloud SQL Admin API
+Cloud Filestore API
+Serverless VPC Access API
+
+[part2](https://www.youtube.com/watch?v=0YExsb2HgLI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=31)
+
+4) Mage
+cd into the mage directory. Rename dev.env to .env. You will notice there are some postgres configurations there. That can be removed.
+Ensure that docker has already been installed as indicated above.
+Run docker compose build to build mage using docker.
+Once the image has been created. Run docker compose up -d in your terminal to initialize the mage application. Ensure your port has been forwarded since you are on a virtual machine (if you used the compute instance).
+image
+
+Navigate to http://localhost:6789 in your browser to access mage application
+Your file structure in mage will look like this:
+
+
+Go to edit pipelines and create the pipelines to resemble the structure below and code in the pipeline folders. Ensure to edit resource name in code to match yours.
+	
+1. Pipeline to move data from S3 to gcs	2. Pipeline to move data from gcs to big query
+You can watch this Video and the playlist to understand more. 8. Execute Pipelines in the order above, then you should have data in big query.
+
+5) DBT
+I used dbt cloud for this project but you can decide to code locally. Refer to Video and follow up Videos in that section for more guidance on dbt in general including how to develop and deploy dbt models.
+
+Create a free account on dbt cloud
+Create a project and connect to big query. Create a new key from the same service account you created to be used for dbt. Watch this for more assistance. Specify location to EU if you're using a GCP resource created there.
+Replicate file contents are in the dbt/capital_share folder. File structure would look like
+
+
+When done, DAG should resemble this: image
+
+Compile and build dbt build model. A 
+ build is 
+
+image
+
+if successfully, your dataset in bigquery would look like.
+
+
+Go to deploy code on dbt cloud. Create a production environment, create a run and trigger the run manually.
+image
+
+Check here and corresponding Videos for more guidance.
+
+Two new columns, duration and distance are created during the dbt transformation. Refer to this code for the details
+6) Looker Studio
+Create a blank report on looker
+Select the bigquery connector and connect to the transformed data in the dbt production warehouse
+Start building dashboard
+Several calculated fields are created in order to create dashboard in next section.
 
 
 ## References & Resources 
