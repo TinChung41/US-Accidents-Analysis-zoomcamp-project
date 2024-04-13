@@ -104,7 +104,7 @@ The dashboard is accessible from [here](https://lookerstudio.google.com/reportin
 ## References & Resources 
 ---
 
-[Back To Top](#project-US-Accidents-(2016 - 2023))
+[Back To Top](#project-us-accidents-2016---2023)
 
 ## Acknowledgements
 
