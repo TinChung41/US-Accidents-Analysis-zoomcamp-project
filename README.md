@@ -161,9 +161,15 @@ terraform apply
 
 
 
+
 Set up for Cloud Run
+---
 
 [part2](https://www.youtube.com/watch?v=0YExsb2HgLI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=31)
+
+Redeploy and set higher time out for cloud run
+
+When you are done with this Mage instance, then run `terraform-destroy` to avoid your free credit run out
 
 ### 4 Mage
 cd into the mage directory. Rename dev.env to .env. You will notice there are some postgres configurations there. That can be removed.
@@ -181,7 +187,7 @@ Go to edit pipelines and create the pipelines to resemble the structure below an
 1. Pipeline to move data from S3 to gcs	2. Pipeline to move data from gcs to big query
 You can watch this Video and the playlist to understand more. 8. Execute Pipelines in the order above, then you should have data in big query.
 
-5) DBT
+### 5 DBT
 I used dbt cloud for this project but you can decide to code locally. Refer to Video and follow up Videos in that section for more guidance on dbt in general including how to develop and deploy dbt models.
 
 Create a free account on dbt cloud
@@ -205,7 +211,7 @@ image
 Check here and corresponding Videos for more guidance.
 
 Two new columns, duration and distance are created during the dbt transformation. Refer to this code for the details
-6) Looker Studio
+### 6 Looker Studio
 Create a blank report on looker
 Select the bigquery connector and connect to the transformed data in the dbt production warehouse
 Start building dashboard
