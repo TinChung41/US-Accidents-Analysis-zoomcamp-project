@@ -172,14 +172,23 @@ Redeploy and set higher time out for cloud run
 When you are done with this Mage instance, then run `terraform-destroy` to avoid your free credit run out
 
 ### 4 Mage
-cd into the mage directory. Rename dev.env to .env. You will notice there are some postgres configurations there. That can be removed.
-Ensure that docker has already been installed as indicated above.
-Run docker compose build to build mage using docker.
-Once the image has been created. Run docker compose up -d in your terminal to initialize the mage application. Ensure your port has been forwarded since you are on a virtual machine (if you used the compute instance).
-image
+
+run 
+
+`git clone https://github.com/mage-ai/mage-zoomcamp.git mage-zoomcamp`
+cd into the mage directory. Rename dev.env to .env
+
+run 
+```
+pull mageai/mageai:latest
+
+docker-compose build
+docker-compose up
+```
+
+
 
 Navigate to http://localhost:6789 in your browser to access mage application
-Your file structure in mage will look like this:
 
 
 Go to edit pipelines and create the pipelines to resemble the structure below and code in the pipeline folders. Ensure to edit resource name in code to match yours.
