@@ -186,6 +186,9 @@ docker-compose build
 docker-compose up
 ```
 
+Implement the code in [Mage](https://github.com/TinChung41/US-Accidents-Analysis-zoomcamp-project/tree/main/Mage) floder to create the pipeline like here
+
+
 
 
 Navigate to http://localhost:6789 in your browser to access mage application
