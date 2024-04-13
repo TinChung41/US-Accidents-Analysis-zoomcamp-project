@@ -153,9 +153,19 @@ Cloud SQL Admin API
 Cloud Filestore API
 Serverless VPC Access API
 
+in the directory `mage-ai-terraform-templates/gcp$` run
+```
+terraform init
+terraform apply
+```
+
+
+
+Set up for Cloud Run
+
 [part2](https://www.youtube.com/watch?v=0YExsb2HgLI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=31)
 
-4) Mage
+### 4 Mage
 cd into the mage directory. Rename dev.env to .env. You will notice there are some postgres configurations there. That can be removed.
 Ensure that docker has already been installed as indicated above.
 Run docker compose build to build mage using docker.
