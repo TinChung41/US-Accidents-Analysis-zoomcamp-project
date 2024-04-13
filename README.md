@@ -201,31 +201,21 @@ Implement the code in [Mage](https://github.com/TinChung41/US-Accidents-Analysis
 
 
 Create a free account on dbt cloud
-Create a project with [this]() 
-Replicate file contents are in the dbt/capital_share folder. File structure would look like
+Create a project with [this](https://github.com/TinChung41/data-engineering-zoomcamp/blob/main/04-analytics-engineering/dbt_cloud_setup.md). This include setting the role for the service account earlier, enable API and add deploy key to your github repo
 
 
-When done, DAG should resemble this: image
+Since you should be working on your sample files, the model should be like this
 
-Compile and build dbt build model. A 
- build is 
+![image](https://github.com/TinChung41/US-Accidents-Analysis-zoomcamp-project/assets/98845918/afae36fe-504b-4270-be80-75bc48e90eb1)
 
-image
+then add nightly deployment to have the transformed data in prod, to do step by step, following this [video](https://www.youtube.com/watch?v=V2m5C0n8Gro&list=PLaNLNpjZpzwgneiI-Gl8df8GCsPYp_6Bs&index=7)
 
-if successfully, your dataset in bigquery would look like.
-
-
-Go to deploy code on dbt cloud. Create a production environment, create a run and trigger the run manually.
-image
-
-Check here and corresponding Videos for more guidance.
-
-Two new columns, duration and distance are created during the dbt transformation. Refer to this code for the details
 ### 6 Looker Studio
-Create a blank report on looker
-Select the bigquery connector and connect to the transformed data in the dbt production warehouse
-Start building dashboard
-Several calculated fields are created in order to create dashboard in next section.
+go to (Looker Studio)[https://lookerstudio.google.com/u/0/navigation/reporting]
+
+choose a new report, choose data source: BigQuerry and use the data in the prod schema
+
+
 
 
 ## References & Resources 
