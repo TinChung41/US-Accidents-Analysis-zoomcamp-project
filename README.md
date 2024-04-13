@@ -186,24 +186,22 @@ docker-compose build
 docker-compose up
 ```
 
-Implement the code in [Mage](https://github.com/TinChung41/US-Accidents-Analysis-zoomcamp-project/tree/main/Mage) floder to create the pipeline like here
-
-
-
-
 Navigate to http://localhost:6789 in your browser to access mage application
 
+go to io_config.yaml and modify it by link it to your service account json file
 
-Go to edit pipelines and create the pipelines to resemble the structure below and code in the pipeline folders. Ensure to edit resource name in code to match yours.
-	
-1. Pipeline to move data from S3 to gcs	2. Pipeline to move data from gcs to big query
-You can watch this Video and the playlist to understand more. 8. Execute Pipelines in the order above, then you should have data in big query.
+**If you on cloud run**: go to the file strucure and right click to upload the json file
+![image](https://github.com/TinChung41/US-Accidents-Analysis-zoomcamp-project/assets/98845918/52b62c9d-6e5b-4904-8675-0d1a62fe26a5)
+
+
+Implement the code in [Mage](https://github.com/TinChung41/US-Accidents-Analysis-zoomcamp-project/tree/main/Mage) floder to create the pipeline like [here](https://github.com/TinChung41/US-Accidents-Analysis-zoomcamp-project/blob/main/README.md#elt-steps)
+
 
 ### 5 DBT
-I used dbt cloud for this project but you can decide to code locally. Refer to Video and follow up Videos in that section for more guidance on dbt in general including how to develop and deploy dbt models.
+
 
 Create a free account on dbt cloud
-Create a project and connect to big query. Create a new key from the same service account you created to be used for dbt. Watch this for more assistance. Specify location to EU if you're using a GCP resource created there.
+Create a project with [this]() 
 Replicate file contents are in the dbt/capital_share folder. File structure would look like
 
 
